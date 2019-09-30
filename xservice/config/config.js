@@ -4,7 +4,7 @@ const config = {
         username: 'root',
         password: 'maria',
         conn: {
-            host: 'local',
+            host: 'localhost',
             port: '3306',
             dialect: 'mariadb',
             dialectOptions: {
