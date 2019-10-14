@@ -1,4 +1,5 @@
 const config = {
+    appid:'63145e45-e9d7-11e9-8da0-000c29e1fb59',
     db: {
         database: 'xtest',
         username: 'root',

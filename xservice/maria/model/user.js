@@ -11,29 +11,46 @@ user.init({
         defaultValue: uuidv4() */
     },
     uname: {
-        type: seq.STRING(64),
+        type: seq.STRING(1024),
         allowNull: false
     },
     pwd: {
-        type: seq.STRING(512),
+        type: seq.STRING(1024),
         allowNull: false
     },
-    nname: seq.STRING(256),
-    remark: seq.STRING(512),
-    createdAt: {
-        type: seq.BIGINT,
-        defaultValue: Date.now(),
-        field: 'ctime'
-    },
-    updatedAt: {
-        type: seq.BIGINT,
-        field: 'utime'
-    }
+    disflag: seq.STRING(32),
+    delflag: seq.STRING(32),
+    // remark: seq.STRING(512),
+    // createdAt: {
+    //     type: seq.BIGINT,
+    //     defaultValue: Date.now(),
+    //     field: 'ctime'
+    // },
+    // updatedAt: {
+    //     type: seq.BIGINT,
+    //     field: 'utime'
+    // }
 }, {
     sequelize: conn,
-    timestamps: false,
+    // timestamps: true,
+    paranoid: true,
+
+    createdAt: 'ctime',
+    updatedAt: 'utime',
+    deletedAt: 'dtime',
+
     tableName: 'sys_user'
 });
+
+// user.create({
+//     uid:uuidv4(),
+//     uname:'sa',
+//     pwd:'123',
+//     nname:'randy',
+//     remark:'root user'
+// }).then(u=>{
+//     console.log(u);
+// });
 
 // const user=conn.define('user',
 //     {
