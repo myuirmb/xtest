@@ -1,57 +1,50 @@
+<style lang="scss" scoped>
+.mintui {
+  font-size: 24px;
+}
+</style>
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-    <div>
-      <Button type="primary" size="small">primary</Button>
-      <Button type="primary">primary</Button>
-      <!-- <mt-button type="primary">primary</mt-button> -->
-      <Tabbar v-model="selected">
-        <TabItem id="外卖">
-          <img slot="icon" src="../assets/100x100.png" />
-          外卖
-        </TabItem>
-        <TabItem id="订单">
-          <img slot="icon" src="../assets/100x100.png" />
-          订单
-        </TabItem>
-        <TabItem id="发现">
-          <img slot="icon" src="../assets/100x100.png" />
-          发现
-        </TabItem>
-        <TabItem id="我的">
-          <img slot="icon" src="../assets/100x100.png" />
-          我的
-        </TabItem>
-      </Tabbar>
-
-    </div>
+    <Tabbar v-model="selected">
+      <TabItem id="home">
+        <i class="mintui mintui-home"></i>
+        <br>首页
+      </TabItem>
+      <TabItem id="lifes">
+        <i class="mintui mintui-star"></i>
+        <br>生活
+      </TabItem>
+      <TabItem id="msg">
+        <i class="mintui mintui-msg"></i>
+        <br>消息
+      </TabItem>
+      <TabItem id="my">
+        <i class="mintui mintui-user"></i>
+        <br>我的
+      </TabItem>
+    </Tabbar>
   </div>
 </template>
 
 <script>
-import { Button } from "mint-ui";
+// import { Button } from "mint-ui";
 import { Tabbar, TabItem } from "mint-ui";
-import HelloWorld from "./components/HelloWorld.vue";
+// import HelloWorld from "./components/HelloWorld.vue";
 // Vue.component(Button.name, Button);
 export default {
   name: "app",
+  data() {
+    return {
+      selected: "home"
+    };
+  },
   components: {
-    HelloWorld,
-    Button,
+    // HelloWorld,
+    // Button,
     Tabbar,
     TabItem
   }
 };
 </script>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
