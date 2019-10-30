@@ -10,8 +10,14 @@ user.init({
         allowNull: false/* ,
         defaultValue: uuidv4() */
     },
+    uno: {
+        type: seq.BIGINT,
+        unique: true,
+        allowNull: false
+    },
     uname: {
-        type: seq.STRING(1024),
+        type: seq.STRING(128),
+        unique: true,
         allowNull: false
     },
     pwd: {
@@ -33,11 +39,11 @@ user.init({
 }, {
     sequelize: conn,
     // timestamps: true,
-    paranoid: true,
+    // paranoid: true,
 
     createdAt: 'ctime',
     updatedAt: 'utime',
-    deletedAt: 'dtime',
+    // deletedAt: 'dtime',
 
     tableName: 'sys_user'
 });

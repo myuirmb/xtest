@@ -2,14 +2,14 @@
 </style>
 
 <template>
-  <div id="app">
-      <router-view />
+  <div id="my">
+    my
   </div>
 </template>
 
 <script>
 export default {
-  name: "app",
+  name: "my"
 };
 </script>
 
