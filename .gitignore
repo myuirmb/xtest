@@ -61,7 +61,7 @@ typings/
 .next
 
 
-
+cache
 
 .DS_Store
 node_modules
