@@ -28,13 +28,13 @@ user.init({
     delflag: seq.STRING(32),
     // remark: seq.STRING(512),
     // createdAt: {
-    //     type: seq.BIGINT,
-    //     defaultValue: Date.now(),
-    //     field: 'ctime'
+    // type: seq.BIGINT,
+    // defaultValue: Date.now(),
+    // field: 'ctime'
     // },
     // updatedAt: {
-    //     type: seq.BIGINT,
-    //     field: 'utime'
+    // type: seq.BIGINT,
+    // field: 'utime'
     // }
 }, {
     sequelize: conn,
@@ -49,47 +49,47 @@ user.init({
 });
 
 // user.create({
-//     uid:uuidv4(),
-//     uname:'sa',
-//     pwd:'123',
-//     nname:'randy',
-//     remark:'root user'
+// uid:uuidv4(),
+// uname:'sa',
+// pwd:'123',
+// nname:'randy',
+// remark:'root user'
 // }).then(u=>{
-//     console.log(u);
+// console.log(u);
 // });
 
 // const user=conn.define('user',
-//     {
-//         uid: {
-//             type: seq.UUID,
-//             primaryKey: true,
-//             allowNull: false/* ,
-//             defaultValue: uuidv4() */
-//         },
-//         uname: {
-//             type: seq.STRING(64),
-//             allowNull: false
-//         },
-//         pwd: {
-//             type: seq.STRING(512),
-//             allowNull: false
-//         },
-//         nname: seq.STRING(256),
-//         remark: seq.STRING(512),
-//         createdAt: {
-//             type: seq.BIGINT,
-//             defaultValue: Date.now(),
-//             field: 'ctime'
-//         },
-//         updatedAt: {
-//             type: seq.BIGINT,
-//             field: 'utime'
-//         }
-//     },
-//     {
-//         timestamps: false,
-//         tableName: 'sys_user'
-//     }
+// {
+// uid: {
+// type: seq.UUID,
+// primaryKey: true,
+// allowNull: false/* ,
+// defaultValue: uuidv4() */
+// },
+// uname: {
+// type: seq.STRING(64),
+// allowNull: false
+// },
+// pwd: {
+// type: seq.STRING(512),
+// allowNull: false
+// },
+// nname: seq.STRING(256),
+// remark: seq.STRING(512),
+// createdAt: {
+// type: seq.BIGINT,
+// defaultValue: Date.now(),
+// field: 'ctime'
+// },
+// updatedAt: {
+// type: seq.BIGINT,
+// field: 'utime'
+// }
+// },
+// {
+// timestamps: false,
+// tableName: 'sys_user'
+// }
 // );
 
 module.exports = user;
