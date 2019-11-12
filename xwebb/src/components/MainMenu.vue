@@ -1,0 +1,49 @@
+<style lang="scss" scoped>
+</style>
+
+<template>
+  <van-tabbar v-model="active">
+    <!--  @change="onChange" -->
+    <van-tabbar-item name="home" icon="wap-home-o" to="/home">首页</van-tabbar-item>
+    <van-tabbar-item name="lifes" icon="flower-o" to="/lifes">生活</van-tabbar-item>
+    <van-tabbar-item name="contact" icon="friends-o" to="/contact">联系人</van-tabbar-item>
+    <van-tabbar-item name="message" icon="chat-o" to="/message">消息</van-tabbar-item>
+    <van-tabbar-item name="my" icon="manager-o" to="/my">我的</van-tabbar-item>
+  </van-tabbar>
+</template>
+
+<script>
+import { Tabbar, TabbarItem } from "vant";
+import { mapMutations } from "vuex";
+
+export default {
+  name: "MainMenu",
+  components: {
+    [Tabbar.name]: Tabbar,
+    [TabbarItem.name]: TabbarItem
+  },
+  computed: {
+    active: {
+      get() {
+        return this.$store.state.active;
+      },
+      set(active) {
+        this.setActive({ active });
+      }
+    }
+  },
+
+  // created() {
+  //   console.log(this.active, 12423432);
+  //   this.active = "contact";
+  // },
+  // mounted() {},
+  methods: {
+    ...mapMutations(["setActive"])
+    // onChange(active) {
+    //   // console.log(active);
+    //   // this.setActive({active})
+    // }
+  }
+};
+</script>
