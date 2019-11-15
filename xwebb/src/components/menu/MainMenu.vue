@@ -1,13 +1,13 @@
-<style lang="scss" scoped>
+<style lang="less" scoped>
 </style>
 
 <template>
-  <van-tabbar v-model="active">
+  <van-tabbar route v-model="active">
     <!--  @change="onChange" -->
     <van-tabbar-item name="home" icon="wap-home-o" to="/home">首页</van-tabbar-item>
-    <van-tabbar-item name="lifes" icon="flower-o" to="/lifes">生活</van-tabbar-item>
     <van-tabbar-item name="contact" icon="friends-o" to="/contact">联系人</van-tabbar-item>
-    <van-tabbar-item name="message" icon="chat-o" to="/message">消息</van-tabbar-item>
+    <van-tabbar-item name="message" icon="chat-o" to="/message" info>消息</van-tabbar-item>
+    <van-tabbar-item name="lifes" icon="flower-o" to="/lifes">生活</van-tabbar-item>
     <van-tabbar-item name="my" icon="manager-o" to="/my">我的</van-tabbar-item>
   </van-tabbar>
 </template>
@@ -22,10 +22,15 @@ export default {
     [Tabbar.name]: Tabbar,
     [TabbarItem.name]: TabbarItem
   },
+  data() {
+    return {
+      lifes_dot: false
+    };
+  },
   computed: {
     active: {
       get() {
-        return this.$store.state.active;
+        return this.$store.state.menus.active;
       },
       set(active) {
         this.setActive({ active });

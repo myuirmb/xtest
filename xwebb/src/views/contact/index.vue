@@ -1,4 +1,4 @@
-<style lang="scss" scoped>
+<style lang="less" scoped>
 </style>
 
 <template>
@@ -6,14 +6,12 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapMutations } from "vuex";
 export default {
   name: "contact",
-  computed: {
-    ...mapState(["active"])
-  },
   created() {
-    if (this.active !== "contact") this.setActive({ active: "contact" });
+    if (this.$store.state.menus.active !== "contact")
+      this.setActive({ active: "contact" });
   },
   methods: {
     ...mapMutations(["setActive"])

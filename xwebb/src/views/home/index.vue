@@ -1,24 +1,25 @@
-<style lang="scss" scoped>
+<style lang="less" scoped>
 </style>
 
 <template>
-  <div id="home">
-    home
-  </div>
+  <div id="home">home</div>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapMutations,mapActions } from "vuex";
+
 export default {
   name: "home",
-  computed: {
-    ...mapState(["active"])
-  },
   created() {
-    if (this.active !== "home") this.setActive({ active: "home" });
+    if (this.$store.state.menus.active !== "home")
+      this.setActive({ active: "home" });
+  },
+  mounted() {
+    this.getHomeUserList();
   },
   methods: {
-    ...mapMutations(["setActive"])
+    ...mapMutations(["setActive"]),
+    ...mapActions(['getHomeUserList'])
   }
 };
 </script>

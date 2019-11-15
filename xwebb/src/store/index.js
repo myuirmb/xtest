@@ -1,19 +1,26 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import userlist from './modules/userlist.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    active: "home"
+    menus: {
+      active: 'home',
+      mmshow: false,
+      umshow: true,
+      mylike: true
+    }
   },
   mutations: {
     setActive(state, payload) {
-      state.active = payload.active;
+      state.menus.active = payload.active
     }
   },
   actions: {
   },
   modules: {
+    userlist
   }
 })

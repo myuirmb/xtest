@@ -1,21 +1,17 @@
-<style lang="scss" scoped>
+<style lang="less" scoped>
 </style>
 
 <template>
-  <div id="my">
-    my
-  </div>
+  <div id="my">my</div>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapMutations } from "vuex";
 export default {
   name: "my",
-  computed: {
-    ...mapState(["active"])
-  },
   created() {
-    if (this.active !== "my") this.setActive({ active: "my" });
+    if (this.$store.state.menus.active !== "my")
+      this.setActive({ active: "my" });
   },
   methods: {
     ...mapMutations(["setActive"])
