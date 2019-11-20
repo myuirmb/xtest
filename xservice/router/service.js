@@ -28,7 +28,7 @@ r.get('/gu', async ctx => {
     const res = await u.getall({
         where: {
             delflag: {
-                [seq.Op.not]: null
+                [seq.Op.is]: null
             }
         }
     });
