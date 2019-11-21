@@ -5,6 +5,7 @@
   <div id="home">
     <home-user-list
       v-for="item in homelist"
+      :uid="item.uid"
       photo="https://img.yzcdn.cn/vant/cat.jpeg"
       :nickname="item.nickname"
       :gender="item.gender"
@@ -18,7 +19,7 @@
       :distance="item.distance"
       :vip="item.vip"
       :key="item.uid"
-    />
+    /><!-- @click="jumpUserInfo" -->
   </div>
 </template>
 
@@ -45,7 +46,10 @@ export default {
   },
   methods: {
     ...mapMutations(["setActive", "setShowMenus"]),
-    ...mapActions(["getHomeUserList"])
+    ...mapActions(["getHomeUserList"]),
+    jumpUserInfo() {
+      console.log(arguments,"abcll");
+    }
   }
 };
 </script>

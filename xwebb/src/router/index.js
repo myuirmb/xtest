@@ -27,27 +27,27 @@ const routes = [
     redirect: '/home',
     children: [
       {
-        path: 'home',
+        path: '/home',
         name: 'home',
         component: () => import('../views/home')
       },
       {
-        path: 'lifes',
+        path: '/lifes',
         name: 'lifes',
         component: () => import('../views/lifes')
       },
       {
-        path: 'contact',
+        path: '/contact',
         name: 'contact',
         component: () => import('../views/contact')
       },
       {
-        path: 'message',
+        path: '/message',
         name: 'message',
         component: () => import('../views/message')
       },
       {
-        path: 'my',
+        path: '/my',
         name: 'my',
         component: () => import('../views/my')
       }
