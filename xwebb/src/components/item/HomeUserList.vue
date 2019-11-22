@@ -29,7 +29,7 @@
         height: 14px;
         margin-right: 3px;
         & > i {
-          font-size: 14px;
+          font-size: 12px;
         }
       }
     }

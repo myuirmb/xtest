@@ -10,7 +10,7 @@
   <div id="index">
     <div>
       <router-view />
-      <div class="footer" v-if="ftshow"></div>
+      <!-- <div class="footer" v-if="ftshow"></div> -->
     </div>
     <main-menu v-if="mmshow" />
     <user-menu v-if="umshow" />
