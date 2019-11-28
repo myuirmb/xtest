@@ -41,25 +41,33 @@
     />
     <div style="height:51px;background-color:#fff;"></div>
   </van-pull-refresh>-->
-  <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-    <home-user-list
-      v-for="item in homelist"
-      :uid="item.uid"
-      photo="https://img.yzcdn.cn/vant/cat.jpeg"
-      :nickname="item.nickname"
-      :gender="item.gender"
-      :age="item.age"
-      :height="item.height"
-      :conste="item.conste"
-      :zodiac="item.zodiac"
-      :maxim="item.maxim"
-      :salary="item.salary"
-      :online="item.online"
-      :distance="item.distance"
-      :vip="item.vip"
-      :key="item.uid"
-    />
-  </van-list>
+  <van-pull-refresh v-model="isLoading" @refresh="onRefresh" style="min-height:100vh">
+    <van-list
+      v-model="loading"
+      :finished="finished"
+      finished-text="没有更多了"
+      offset="30"
+      @load="onLoad"
+    >
+      <home-user-list
+        v-for="item in homelist"
+        :uid="item.uid"
+        photo="https://img.yzcdn.cn/vant/cat.jpeg"
+        :nickname="item.nickname"
+        :gender="item.gender"
+        :age="item.age"
+        :height="item.height"
+        :conste="item.conste"
+        :zodiac="item.zodiac"
+        :maxim="item.maxim"
+        :salary="item.salary"
+        :online="item.online"
+        :distance="item.distance"
+        :vip="item.vip"
+        :key="item.uid"
+      />
+    </van-list>
+  </van-pull-refresh>
 </template>
 
 <script>
@@ -88,8 +96,12 @@ export default {
   },
   created() {
     this.setShowMenus({ menus: "MainMenu" });
-    if (this.$store.state.menus.active !== "home")
+    if (this.$store.state.menus.active !== "home") {
       this.setActive({ active: "home" });
+    }
+    if (this.homelist.length >= 15) {
+      this.finished = true;
+    }
   },
   mounted() {
     // this.getHomeUserList();
