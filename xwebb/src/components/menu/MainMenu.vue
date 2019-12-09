@@ -6,7 +6,12 @@
     <!--  @change="onChange" -->
     <!-- <div  style="width:50px;height:50px;background:red;"></div> -->
     <van-tabbar-item name="home" icon="wap-home-o" to="/home">首页</van-tabbar-item>
-    <van-tabbar-item name="contact" icon="friends-o" to="/contact" v-longTouch="handleLongTouch">联系人</van-tabbar-item>
+    <van-tabbar-item
+      name="contact"
+      icon="friends-o"
+      to="/contact"
+      v-longTouch="()=>{this.changeShowStatus('contact')}"
+    >联系人</van-tabbar-item>
     <van-tabbar-item name="message" icon="chat-o" to="/message" info>消息</van-tabbar-item>
     <van-tabbar-item name="lifes" icon="flower-o" to="/lifes">生活</van-tabbar-item>
     <van-tabbar-item name="my" icon="manager-o" to="/my">我的</van-tabbar-item>
@@ -47,13 +52,17 @@ export default {
   // },
   // mounted() {},
   methods: {
-    ...mapMutations(["setActive"]),
+    ...mapMutations(["setActive", "setShowContactSearch"]),
     // onChange(active) {
     //   // console.log(active);
     //   // this.setActive({active})
     // }
-    handleLongTouch() {
-      console.log(arguments);
+    changeShowStatus(flag) {
+      console.log("long long ago", flag, arguments);
+      if (flag === "contact") {
+        console.log(`flag === "contact"`);
+        this.setShowContactSearch({ csshow: true });
+      }
     }
   }
 };

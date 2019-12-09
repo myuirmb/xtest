@@ -20,7 +20,7 @@
         height="100vh"
       />
     </van-popup>
-    <van-button type="info" @click="showPopup">信息按钮</van-button>
+    <!-- <van-button type="info" @click="showPopup">信息按钮</van-button> -->
     <!-- <van-tabs v-model="active" type="line">
       <van-tab title="最新访客" name="visitors"></van-tab>
       <van-tab title="相互关注" name="mutual">内容 1</van-tab>
@@ -48,7 +48,7 @@ export default {
   },
   data() {
     return {
-      show: false,
+      // show: false,
       activeNavId: "",
       activeNavIndex: 0,
       activeItemsIds: ["all"],
@@ -119,6 +119,17 @@ export default {
       // active: "visitors"
     };
   },
+  computed: {
+    show: {
+      get() {
+        return this.$store.state.menus.csshow;
+      },
+      set(csshow) {
+        console.log(`this.in.contact.pages`)
+        this.setShowContactSearch({ csshow });
+      }
+    }
+  },
   created() {
     this.setShowMenus({ menus: "MainMenu" });
     if (this.$store.state.menus.active !== "contact") {
@@ -127,10 +138,10 @@ export default {
     this.activeNavId = this.items[this.activeNavIndex].id;
   },
   methods: {
-    ...mapMutations(["setActive", "setShowMenus"]),
-    showPopup() {
-      this.show = true;
-    },
+    ...mapMutations(["setActive", "setShowMenus", "setShowContactSearch"]),
+    // showPopup() {
+    //   this.show = true;
+    // },
     // popupClose(arg) {
     //   console.log(arg, "close");
     // },

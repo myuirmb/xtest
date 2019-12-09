@@ -31,7 +31,7 @@ function touchend(e, el) {
   el.endTime = ''
   tapObj.distanceX = tapObj.pageX - touches.pageX
   tapObj.distanceY = tapObj.pageY - touches.pageY
-  let isLongTap = el.time > 100 && Math.abs(tapObj.distanceX) < 10 && Math.abs(tapObj.distanceY) < 10
+  let isLongTap = el.time > 500 && Math.abs(tapObj.distanceX) < 10 && Math.abs(tapObj.distanceY) < 10
   if (!isLongTap || el.endTime) return
   el.documentHandler(e)
 }
