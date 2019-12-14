@@ -1,13 +1,16 @@
 <style lang="less" scoped>
+.index{
+  background-color: #f3f3f3;
+}
 .footer {
   height: 50px;
   width: 100%;
-  background-color: #f3f3f3;
+  background-color: #fff;
 }
 </style>
 
 <template>
-  <div id="index">
+  <div id="index" class="index">
     <div>
       <router-view />
       <div class="footer" v-if="ftshow"></div>

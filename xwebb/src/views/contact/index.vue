@@ -1,4 +1,12 @@
 <style lang="less" scoped>
+  .csearch{
+    position:  fixed;
+    padding: 0px 2px;
+    border: 1px solid #f3f3f3;
+    border-radius: 50%;
+    bottom: 60px;
+    right: 10px;
+  }
 </style>
 
 <template>
@@ -10,7 +18,7 @@
       @click-overlay="popupOverlayClick"
     >
       <!-- @close="popupClose"
-      @closed="popupClosed" -->
+      @closed="popupClosed"-->
       <van-tree-select
         :items="items"
         :active-id.sync="activeItemsIds"
@@ -30,12 +38,16 @@
       <van-tab title="点赞我的" name="smileme">内容 4</van-tab>
       <van-tab title="我阻止的" name="meblock">内容 4</van-tab>
     </van-tabs>-->
+
+    <div class="csearch" @click="showPopup">
+      <van-icon name="search" color="#f3f3f3" size="24" />
+    </div>
   </div>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
-import { Tabs, Tab, Popup, Button, TreeSelect } from "vant";
+import { Tabs, Tab, Popup, Button, TreeSelect, Sticky, Icon } from "vant";
 
 export default {
   name: "contact",
@@ -44,11 +56,13 @@ export default {
     [Tab.name]: Tab,
     [Popup.name]: Popup,
     [Button.name]: Button,
-    [TreeSelect.name]: TreeSelect
+    [TreeSelect.name]: TreeSelect,
+    [Sticky.name]: Sticky,
+    [Icon.name]: Icon
   },
   data() {
     return {
-      // show: false,
+      show: false,
       activeNavId: "",
       activeNavIndex: 0,
       activeItemsIds: ["all"],
@@ -119,17 +133,17 @@ export default {
       // active: "visitors"
     };
   },
-  computed: {
-    show: {
-      get() {
-        return this.$store.state.menus.csshow;
-      },
-      set(csshow) {
-        console.log(`this.in.contact.pages`)
-        this.setShowContactSearch({ csshow });
-      }
-    }
-  },
+  // computed: {
+  //   show: {
+  //     get() {
+  //       return this.$store.state.menus.csshow;
+  //     },
+  //     set(csshow) {
+  //       console.log(`this.in.contact.pages`)
+  //       this.setShowContactSearch({ csshow });
+  //     }
+  //   }
+  // },
   created() {
     this.setShowMenus({ menus: "MainMenu" });
     if (this.$store.state.menus.active !== "contact") {
@@ -138,10 +152,11 @@ export default {
     this.activeNavId = this.items[this.activeNavIndex].id;
   },
   methods: {
-    ...mapMutations(["setActive", "setShowMenus", "setShowContactSearch"]),
-    // showPopup() {
-    //   this.show = true;
-    // },
+    // ...mapMutations(["setActive", "setShowMenus", "setShowContactSearch"]),
+    ...mapMutations(["setActive", "setShowMenus"]),
+    showPopup() {
+      this.show = true;
+    },
     // popupClose(arg) {
     //   console.log(arg, "close");
     // },

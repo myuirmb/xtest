@@ -1,4 +1,12 @@
 <style lang="less" scoped>
+ .csearch{
+    position:  fixed;
+    padding: 0px 2px;
+    border: 1px solid #f3f3f3;
+    border-radius: 50%;
+    bottom: 60px;
+    right: 10px;
+  }
 </style>
 
 <template>
@@ -67,20 +75,24 @@
         :key="item.uid"
       />
     </van-list>
+    <div class="csearch">
+      <van-icon name="search" color="#f3f3f3" size="24" />
+    </div>
   </van-pull-refresh>
 </template>
 
 <script>
 import HomeUserList from "../../components/item/HomeUserList.vue";
 import { mapState, mapMutations, mapActions } from "vuex";
-import { PullRefresh, List } from "vant";
+import { PullRefresh, List, Icon } from "vant";
 
 export default {
   name: "home",
   components: {
     [HomeUserList.name]: HomeUserList,
     [PullRefresh.name]: PullRefresh,
-    [List.name]: List
+    [List.name]: List,
+    [Icon.name]: Icon
   },
   data() {
     return {
