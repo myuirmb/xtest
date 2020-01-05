@@ -33,6 +33,9 @@
   padding: 5px 0;
   background-color: #fff;
 }
+.van-button--mini {
+  width: 55%;
+}
 </style>
 
 <template>
@@ -71,11 +74,13 @@
         <van-cell title="修改密码" is-link />
       </van-cell-group>
     </div>
-    <div class="my-items bg">
-      <van-button type="primary" round size="mini" width="80%">退出登陆</van-button>
+    <div class="my-items">
+      <van-cell-group>
+        <van-cell title="关闭资料" is-link />
+      </van-cell-group>
     </div>
     <div class="my-items bg">
-      <van-button type="warning" round size="mini">关闭资料</van-button>
+      <van-button type="danger" hairline size="mini">退出登陆</van-button>
     </div>
     <div class="my-items"></div>
   </div>

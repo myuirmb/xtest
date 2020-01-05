@@ -1,4 +1,8 @@
 <style lang="less" scoped>
+  .clist{
+    min-height: 100vh;
+    background-color: #fff;
+  }
  .csearch{
     position:  fixed;
     padding: 0px 2px;
@@ -49,7 +53,7 @@
     />
     <div style="height:51px;background-color:#fff;"></div>
   </van-pull-refresh>-->
-  <van-pull-refresh v-model="isLoading" @refresh="onRefresh" style="min-height:100vh">
+  <van-pull-refresh v-model="isLoading" @refresh="onRefresh" class="clist">
     <van-list
       v-model="loading"
       :finished="finished"
